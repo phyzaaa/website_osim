@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OSMANSA - MAN 1 Kota Bengkulu</title>
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+
+/* BAGIAN CSS */
 
     <style>
         :root {
@@ -177,23 +178,24 @@
         /* GRID SATU BARIS */
         .grid-pimpinan {
             display: flex;
-            justify-content: center;
             gap: 1.5rem;
-            flex-wrap: nowrap; /* Paksa satu baris */
-            overflow-x: auto; /* Bisa di-scroll jika kartu terlalu banyak */
-            padding: 1rem 0;
-            scrollbar-width: none; /* Sembunyikan scrollbar Firefox */
+            padding: 1.5rem;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
         }
         .grid-pimpinan::-webkit-scrollbar { display: none; } /* Sembunyikan scrollbar Chrome */
 
         .card-pimpinan {
-            flex: 0 0 240px; /* Ukuran kartu seragam */
+            width: 240px;
+            min-width: 240px;
+            flex-shrink: 0;
             background: white;
             padding: 1.5rem;
             border-radius: 20px;
             border: 1px solid var(--border);
             text-align: center;
-            transition: 0.3s;
+            scroll-snap-align: center;
         }
         .card-pimpinan:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
 
@@ -224,90 +226,90 @@
         .footer-bottom { border-top: 1px solid var(--border); padding-top: 2rem; display: flex; justify-content: space-between; align-items: center; }
 
 	/* --- VISION & MISSION --- */
-.vm-section { padding: 6rem 0; background: white; }
+        .vm-section { padding: 6rem 0; background: white; }
 
-.vm-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 3rem;
-    margin-top: 3rem;
-}
+        .vm-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
 
-.vm-card {
-    padding: 3rem;
-    border-radius: 30px;
-    border: 1px solid var(--border);
-    transition: 0.3s;
-    height: 100%;
-}
+        .vm-card {
+            padding: 3rem;
+            border-radius: 30px;
+            border: 1px solid var(--border);
+            transition: 0.3s;
+            height: 100%;
+        }
 
-.vm-card:hover {
-    border-color: var(--primary);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.03);
-}
+        .vm-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+        }
 
-.vision-card {
-    background: linear-gradient(to bottom right, #fdfdfd, #f8fafc);
-    text-align: center;
-}
+        .vision-card {
+            background: linear-gradient(to bottom right, #fdfdfd, #f8fafc);
+            text-align: center;
+        }
 
-.mission-card {
-    background: white;
-}
+        .mission-card {
+            background: white;
+        }
 
-.vm-icon {
-    width: 60px;
-    height: 60px;
-    background: var(--primary);
-    color: white;
-    border-radius: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 2rem;
-}
+        .vm-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
 
-.vision-card .vm-icon { margin: 0 auto 2rem; }
+        .vision-card .vm-icon { margin: 0 auto 2rem; }
 
-.vm-card h3 {
-    font-size: 1.75rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-    color: var(--dark);
-}
+        .vm-card h3 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
 
-.vm-card p {
-    color: var(--text-gray);
-    font-size: 1.1rem;
-    line-height: 1.8;
-}
+        .vm-card p {
+            color: var(--text-gray);
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
 
-.mission-list {
-    list-style: none;
-    margin-top: 1.5rem;
-}
+        .mission-list {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
 
-.mission-list li {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 1.25rem;
-    color: var(--text-gray);
-    font-size: 1rem;
-}
+        .mission-list li {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 1.25rem;
+            color: var(--text-gray);
+            font-size: 1rem;
+        }
 
-.mission-check {
-    width: 24px;
-    height: 24px;
-    background: rgba(143, 185, 53, 0.1);
-    color: var(--primary);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    font-weight: bold;
-    font-size: 0.8rem;
-}
+        .mission-check {
+            width: 24px;
+            height: 24px;
+            background: rgba(143, 185, 53, 0.1);
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-weight: bold;
+            font-size: 0.8rem;
+        }
 
         /* --- MOBILE TOGGLE --- */
         .mobile-toggle { display: none; background: none; border: none; cursor: pointer; }
@@ -317,11 +319,35 @@
             .mobile-toggle { display: block; }
             .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
             .hero-title { font-size: 2.5rem; }
-            .grid-pimpinan { justify-content: flex-start; padding-left: 1rem; } /* Agar kartu mulai dari kiri saat scroll mobile */
-            #titleText { font-size: 1.1rem; min-width: 180px; }
+            .grid-pimpinan {
+                display: flex;
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                padding: 1.5rem;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                justify-content: flex-start;
+                align-items: center;
+            }
+            .slide.active .grid-pimpinan.grid-pimpinan:not(:has(.card-pimpinan:nth-child(2))) .card-pimpinan {
+                margin: 0 auto;
+            }
+            .grid-pimpinan::after, .grid-pimpinan::before {
+                content: '';
+                padding: 10px
+            }
         }
+
+        @media (min-width: 769px) {
+            .grid-pimpinan {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
     </style>
 </head>
+
+/* BAGIAN HTML */
 
 <body>
 
@@ -400,10 +426,10 @@
                         <div class="mission-check">4</div>
                         <p>Meneruskan program kerja OSIM yang positif, dengan penyesuaian dan penyempurnaan guna memberikan dampak positif yang lebih luas bagi seluruh warga madrasah.</p>
                     </li>
-		    <li>
-			<div class="mission-check">5</div>
-			<p>Mewujudkan kepengurusan OSIM yang berdedikasi tinggi, sehingga seluruh anggota dapat menjadi teladan dalam bersikap, berorganisasi, dan berkontribusi di lingkungan madrasah.</p>
-		    </li>
+		            <li>
+			            <div class="mission-check">5</div>
+			            <p>Mewujudkan kepengurusan OSIM yang berdedikasi tinggi, sehingga seluruh anggota dapat menjadi teladan dalam bersikap, berorganisasi, dan berkontribusi di lingkungan madrasah.</p>
+		            </li>
                 </ul>
             </div>
         </div>
@@ -431,7 +457,7 @@
 
                 <div id="allSlides">
                     <div class="slide active">
-                        <div class="grid-pimpinan">
+                        <div class="grid-pimpinan" style="justify-content: center;"">
                             <div class="card-pimpinan">
                                 <div class="img-box-big"></div>
                                 <h4>Yutia Gustari, S.Sn.</h4>
@@ -500,7 +526,9 @@
                     <h4 class="footer-h4">Quick Links</h4>
                     <ul class="footer-links">
                         <li><a href="#home">Home</a></li>
+                        <li><a href="#vision">About</a></li>
                         <li><a href="#structure">Structure</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </div>
                 <div>
@@ -535,7 +563,7 @@
             "PEMBINA", 
             "PENGURUS INTI", 
             "HUMAS MULTIMEDIA", 
-            "KEAGAMAAN & KESENIAN ISLAMI", 
+            "KEAGAMAAN KESENIAN ISLAMI", 
             "OLAHRAGA SATUAN KEAMANAN", 
             "PERLENGKAPAN & PEMBEKALAN"
         ];
@@ -549,4 +577,3 @@
     </script>
 </body>
 </html>
-
